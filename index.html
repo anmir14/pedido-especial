@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quer Namorar Comigo?</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffe6f0; /* Um rosa bem claro */
+        }
+
+        .heart {
+            width: 100px;
+            height: 90px;
+            background-color: #ff69b4; /* Rosa choque */
+            position: relative;
+            transform: rotate(-45deg);
+            animation: pulse 1s infinite alternate;
+            cursor: pointer;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            width: 100px;
+            height: 90px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart:before {
+            top: -50px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: 50px;
+            top: 0;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: rotate(-45deg) scale(1);
+            }
+            100% {
+                transform: rotate(-45deg) scale(1.1);
+            }
+        }
+
+        #question {
+            font-size: 2em;
+            color: #e91e63; /* Um rosa mais escuro */
+            margin-top: 30px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        #yesButton {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            background-color: #4caf50; /* Verde */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out 0.5s;
+        }
+
+        #yesButton:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="heart" id="heart"></div>
+    <div id="question"></div>
+    <button id="yesButton">Sim!</button>
+
+    <script>
+        const heart = document.getElementById('heart');
+        const questionDiv = document.getElementById('question');
+        const yesButton = document.getElementById('yesButton');
+
+        heart.addEventListener('click', () => {
+            questionDiv.textContent = 'Quer namorar comigo?';
+            questionDiv.style.opacity = 1;
+            yesButton.style.opacity = 1;
+        });
+
+        yesButton.addEventListener('click', () => {
+            alert('Ebaaa! 😍 Mal posso esperar!');
+            // Aqui você pode adicionar mais ações para quando o "Sim" for clicado,
+            // como redirecionar para outra página ou exibir uma mensagem diferente.
+        });
+    </script>
+</body>
+</html>
